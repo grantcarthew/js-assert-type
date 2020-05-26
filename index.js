@@ -5,6 +5,8 @@ export {
   isObjectOrArray,
   isFunction,
   isAsyncFunction,
+  isGeneratorFunction,
+  isGenerator,
   isString,
   isNan,
   isNumber,
@@ -19,7 +21,28 @@ export {
   isDateString,
   isUuid,
   isArray,
+  isInt8Array,
+  isUint8Array,
+  isUint8ClampedArray,
+  isInt16Array,
+  isUint16Array,
+  isInt32Array,
+  isUint32Array,
+  isFloat32Array,
+  isFloat64Array,
+  isBigInt64Array,
+  isBigUint64Array,
+  isArrayBuffer,
+  isSharedArrayBuffer,
   isError,
+  isRegExp,
+  isSymbol,
+  isMap,
+  isWeakMap,
+  isSet,
+  isWeakSet,
+  isDataView,
+  isPromise,
 };
 
 const uuidRegExp =
@@ -30,7 +53,7 @@ function isUndefined(value) {
 }
 
 function isNull(value) {
-  return value === null
+  return value === null;
 }
 
 function isObject(value) {
@@ -47,6 +70,14 @@ function isFunction(value) {
 
 function isAsyncFunction(value) {
   return Object.prototype.toString.call(value) === "[object AsyncFunction]";
+}
+
+function isGeneratorFunction(value) {
+  return Object.prototype.toString.call(value) === "[object GeneratorFunction]";
+}
+
+function isGenerator(value) {
+  return Object.prototype.toString.call(value) === "[object Generator]";
 }
 
 function isString(value) {
@@ -72,7 +103,7 @@ function isBigInt(value) {
 }
 
 function isInfinity(value) {
-  return value === Infinity
+  return value === Infinity;
 }
 
 function isBoolean(value) {
@@ -110,6 +141,103 @@ function isArray(value) {
   return Array.isArray(value);
 }
 
+function isInt8Array(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object Int8Array]";
+}
+
+function isUint8Array(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object Uint8Array]";
+}
+
+function isUint8ClampedArray(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object Uint8ClampedArray]";
+}
+
+function isInt16Array(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object Int16Array]";
+}
+
+function isUint16Array(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object Uint16Array]";
+}
+
+function isInt32Array(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object Int32Array]";
+}
+
+function isUint32Array(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object Uint32Array]";
+}
+
+function isFloat32Array(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object Float32Array]";
+}
+
+function isFloat64Array(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object Float64Array]";
+}
+
+function isBigInt64Array(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object BigInt64Array]";
+}
+
+function isBigUint64Array(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object BigUint64Array]";
+}
+
+function isArrayBuffer(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object ArrayBuffer]";
+}
+
+function isSharedArrayBuffer(value) {
+  return Array.isArray &&
+    Object.prototype.toString.call(value) === "[object SharedArrayBuffer]";
+}
+
 function isError(value) {
   return value instanceof Error;
+}
+
+function isRegExp(value) {
+  return Object.prototype.toString.call(value) === "[object RegExp]";
+}
+
+function isSymbol(value) {
+  return Object.prototype.toString.call(value) === "[object Symbol]";
+}
+
+function isMap(value) {
+  return Object.prototype.toString.call(value) === "[object Map]";
+}
+
+function isWeakMap(value) {
+  return Object.prototype.toString.call(value) === "[object WeakMap]";
+}
+
+function isSet(value) {
+  return Object.prototype.toString.call(value) === "[object Set]";
+}
+
+function isWeakSet(value) {
+  return Object.prototype.toString.call(value) === "[object WeakSet]";
+}
+
+function isDataView(value) {
+  return Object.prototype.toString.call(value) === "[object DataView]";
+}
+
+function isPromise(value) {
+  return Object.prototype.toString.call(value) === "[object Promise]";
 }
